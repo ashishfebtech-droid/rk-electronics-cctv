@@ -1,16 +1,46 @@
 import React, { useState, useEffect } from "react";
-import { FaPhone, FaTools, FaMapMarkerAlt, FaCheck } from "react-icons/fa";
+import { FaPhone, FaTools, FaMapMarkerAlt, FaCheck, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 function Hero() {
   const [isVisible, setIsVisible] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const carouselImages = [
+    "/rk-electronics-cctv/images/camera.webp",
+    "/rk-electronics-cctv/images/fingerprint.webp", 
+    "/rk-electronics-cctv/images/firealarm.webp"
+  ];
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true);
     }, 100);
-
     return () => clearTimeout(timer);
   }, []);
+
+  // Auto slide every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextImage();
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [currentImageIndex]);
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => 
+      prev === carouselImages.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => 
+      prev === 0 ? carouselImages.length - 1 : prev - 1
+    );
+  };
+
+  const goToImage = (index) => {
+    setCurrentImageIndex(index);
+  };
 
   return (
     <>
@@ -52,10 +82,11 @@ function Hero() {
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-emerald-300/25 rounded-full blur-3xl animate-pulse delay-1000"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col-reverse lg:flex-row items-center justify-between min-h-screen pt-24 pb-16 lg:pt-32 lg:pb-24">
+          <div className="flex flex-col-reverse lg:flex-row items-center justify-between min-h-screen pt-24 pb-16 lg:pt-32 lg:pb-24 gap-8">
+            
             {/* Left Side - Content */}
             <div
-              className={`lg:w-1/2 text-center lg:text-left transition-all duration-1000 transform ${
+              className={`w-full lg:w-1/2 text-center lg:text-left transition-all duration-1000 transform ${
                 isVisible
                   ? "translate-x-0 opacity-100"
                   : "-translate-x-10 opacity-0"
@@ -89,7 +120,7 @@ function Hero() {
               <div className="mb-8 space-y-3">
                 {[
                   "Complete Solutions - Installation to Maintenance",
-                  "HD Quality Cameras & Security Systems",
+                  "HD Quality Cameras & Security Systems", 
                   "Professional Expert Team",
                   "Top Brands Partnership",
                 ].map((feature, index) => (
@@ -139,26 +170,72 @@ function Hero() {
               </div>
             </div>
 
-            {/* Right Side - CCTV Image */}
+            {/* Right Side - Carousel */}
             <div
-              className={`lg:w-1/2 mt-12 lg:mt-0 transition-all duration-1000 transform delay-300 ${
+              className={`w-full lg:w-1/2 transition-all duration-1000 transform delay-300 ${
                 isVisible
                   ? "translate-x-0 opacity-100 scale-100"
                   : "translate-x-10 opacity-0 scale-95"
               }`}
             >
-              <div className="relative">
-                {/* Image Container with Shadow */}
-                <div className="relative z-10 transform hover:scale-105 transition-transform duration-500">
-                  <img
-                    src="/rk-electronics-cctv/images/camera.webp"
-                    alt="CCTV Camera"
-                    className="w-full max-w-lg mx-auto lg:max-w-none lg:ml-auto drop-shadow-2xl rounded-2xl"
-                  />
-                </div>
+              <div className="relative w-full max-w-md mx-auto lg:max-w-none">
+                {/* Carousel Container - No Shadow */}
+                <div className="relative overflow-hidden">
+                  
+                  {/* Images with Sliding Animation */}
+                  <div className="relative w-full aspect-square">
+                    {carouselImages.map((image, index) => (
+                      <div
+                        key={index}
+                        className={`absolute inset-0 w-full h-full transition-all duration-500 ease-in-out ${
+                          index === currentImageIndex
+                            ? "opacity-100 transform translate-x-0"
+                            : "opacity-0 transform translate-x-full"
+                        }`}
+                      >
+                        <img
+                          src={image}
+                          alt={`Security Product ${index + 1}`}
+                          className="w-full h-full object-contain cursor-pointer"
+                          onClick={nextImage}
+                        />
+                      </div>
+                    ))}
+                  </div>
 
-                {/* Background Glow Effect */}
-                <div className="absolute inset-0 bg-blue-400/20 rounded-full blur-3xl transform scale-150 -z-10 animate-pulse"></div>
+                  {/* Navigation Arrows */}
+                  <button
+                    onClick={prevImage}
+                    className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 w-8 sm:w-10 h-8 sm:h-10 bg-black/40 hover:bg-black/60 backdrop-blur-sm rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110 z-20"
+                    aria-label="Previous image"
+                  >
+                    <FaChevronLeft className="text-sm sm:text-base" />
+                  </button>
+                  
+                  <button
+                    onClick={nextImage}
+                    className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 w-8 sm:w-10 h-8 sm:h-10 bg-black/40 hover:bg-black/60 backdrop-blur-sm rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110 z-20"
+                    aria-label="Next image"
+                  >
+                    <FaChevronRight className="text-sm sm:text-base" />
+                  </button>
+
+                  {/* Dots Indicator */}
+                  <div className="absolute bottom-3 sm:bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
+                    {carouselImages.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => goToImage(index)}
+                        className={`w-2 sm:w-3 h-2 sm:h-3 rounded-full transition-all duration-300 ${
+                          index === currentImageIndex
+                            ? "bg-white scale-125"
+                            : "bg-white/50 hover:bg-white/70"
+                        }`}
+                        aria-label={`Go to image ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
