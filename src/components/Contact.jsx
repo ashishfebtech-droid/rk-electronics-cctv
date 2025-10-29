@@ -4,8 +4,9 @@ import {
   FaMapMarkerAlt, 
   FaWhatsapp, 
   FaInstagram,
+  FaFacebook,
+  FaYoutube,
   FaClock,
-  FaEnvelope,
   FaPaperPlane
 } from "react-icons/fa";
 
@@ -141,20 +142,40 @@ function Contact() {
               <h4 className="font-bold text-slate-800 mb-4 text-center">Follow Us</h4>
               <div className="flex justify-center gap-4">
                 <a
+                  href="https://www.instagram.com/rk_electronics_cctv?igsh=enVhcXJoM29pdTh5"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 bg-pink-500 text-white rounded-xl flex items-center justify-center hover:bg-pink-600 transition-all duration-300 transform hover:scale-110"
+                  aria-label="Instagram"
+                >
+                  <FaInstagram className="text-xl" />
+                </a>
+                <a
+                  href="https://www.facebook.com/share/1CJ57MxNPD/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 bg-blue-600 text-white rounded-xl flex items-center justify-center hover:bg-blue-700 transition-all duration-300 transform hover:scale-110"
+                  aria-label="Facebook"
+                >
+                  <FaFacebook className="text-xl" />
+                </a>
+                <a
+                  href="https://youtube.com/@rk_electronics_cctv?si=-lkMl_1nChnr6rJf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 bg-red-500 text-white rounded-xl flex items-center justify-center hover:bg-red-600 transition-all duration-300 transform hover:scale-110"
+                  aria-label="YouTube"
+                >
+                  <FaYoutube className="text-xl" />
+                </a>
+                <a
                   href="https://wa.me/917248805027"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 bg-green-500 text-white rounded-xl flex items-center justify-center hover:bg-green-600 transition-all duration-300 transform hover:scale-110"
+                  aria-label="WhatsApp"
                 >
                   <FaWhatsapp className="text-xl" />
-                </a>
-                <a
-                  href="https://www.instagram.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 bg-pink-500 text-white rounded-xl flex items-center justify-center hover:bg-pink-600 transition-all duration-300 transform hover:scale-110"
-                >
-                  <FaInstagram className="text-xl" />
                 </a>
               </div>
             </div>

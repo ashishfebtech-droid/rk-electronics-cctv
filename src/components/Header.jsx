@@ -4,7 +4,8 @@ import {
   FaTimes,
   FaInstagram,
   FaWhatsapp,
-  FaShieldAlt,
+  FaFacebook,
+  FaYoutube,
   FaPhone,
   FaTools,
   FaHome,
@@ -18,6 +19,14 @@ function Header() {
   const [showHeader, setShowHeader] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+
+  // Social Media Links
+  const socialLinks = {
+    instagram: "https://www.instagram.com/rk_electronics_cctv?igsh=enVhcXJoM29pdTh5",
+    facebook: "https://www.facebook.com/share/1CJ57MxNPD/",
+    youtube: "https://youtube.com/@rk_electronics_cctv?si=-lkMl_1nChnr6rJf",
+    whatsapp: "https://wa.me/917248805027"
+  };
 
   // Mount hone pe animation ke liye
   useEffect(() => {
@@ -79,8 +88,22 @@ function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo - Left Side */}
           <a href="#home" className="flex items-center group">
-            <div className="transition-all duration-500 group-hover:scale-110 flex items-center gap-3">
-              <FaShieldAlt className="text-4xl text-blue-600" />
+            <div className="transition-all duration-500 group-hover:scale-105 flex items-center gap-3">
+              {/* Logo Image */}
+              <img 
+                src="/rk-electronics-cctv/images/RKLOGO.webp" 
+                alt="RK Electronics CCTV" 
+                className="w-12 h-12 object-contain"
+                onError={(e) => {
+                  // Agar logo load na ho to fallback text
+                  e.target.style.display = 'none';
+                  e.target.nextSibling.style.display = 'flex';
+                }}
+              />
+              <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-lg hidden">
+                RKE
+              </div>
+              
               <div className="text-left">
                 <h1 className="text-xl font-bold text-slate-800 leading-tight">
                   RK Electronics
@@ -114,7 +137,7 @@ function Header() {
             })}
           </nav>
 
-          {/* CTA Button - Right Side */}
+          {/* CTA Button - Right Side (Social icons removed from desktop) */}
           <div className="hidden lg:flex items-center gap-4">
             <a
               href="tel:7248805027"
@@ -154,7 +177,20 @@ function Header() {
         <div className="flex justify-between items-center p-6 border-b border-slate-200">
           <div className="flex items-center gap-3">
             <div className="relative flex items-center gap-3">
-              <FaShieldAlt className="text-3xl text-blue-600" />
+              {/* Mobile Logo */}
+              <img 
+                src="/rk-electronics-cctv/images/RKLOGO.webp" 
+                alt="RK Electronics CCTV" 
+                className="w-10 h-10 object-contain"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  e.target.nextSibling.style.display = 'flex';
+                }}
+              />
+              <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm hidden">
+                RKE
+              </div>
+              
               <div className="text-left">
                 <h1 className="text-lg font-bold text-slate-800 leading-tight">
                   RK Electronics
@@ -203,21 +239,40 @@ function Header() {
             Call: 7248805027
           </a>
 
-          <div className="flex justify-center gap-6 mb-4">
+          {/* Social Links - Mobile Only */}
+          <div className="flex justify-center gap-4 mb-6">
             <a
-              href="https://www.instagram.com/"
+              href={socialLinks.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-12 h-12 bg-blue-600/10 border-2 border-blue-600/20 text-blue-600 rounded-xl flex items-center justify-center transition-all duration-300 hover:bg-blue-600 hover:text-white hover:scale-110"
+              className="w-12 h-12 bg-pink-500/10 border-2 border-pink-500/20 text-pink-600 rounded-xl flex items-center justify-center transition-all duration-300 hover:bg-pink-500 hover:text-white hover:scale-110"
               aria-label="Instagram"
             >
               <FaInstagram className="text-xl" />
             </a>
             <a
-              href="https://wa.me/917248805027"
+              href={socialLinks.facebook}
               target="_blank"
               rel="noopener noreferrer"
               className="w-12 h-12 bg-blue-600/10 border-2 border-blue-600/20 text-blue-600 rounded-xl flex items-center justify-center transition-all duration-300 hover:bg-blue-600 hover:text-white hover:scale-110"
+              aria-label="Facebook"
+            >
+              <FaFacebook className="text-xl" />
+            </a>
+            <a
+              href={socialLinks.youtube}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 bg-red-500/10 border-2 border-red-500/20 text-red-600 rounded-xl flex items-center justify-center transition-all duration-300 hover:bg-red-500 hover:text-white hover:scale-110"
+              aria-label="YouTube"
+            >
+              <FaYoutube className="text-xl" />
+            </a>
+            <a
+              href={socialLinks.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 bg-green-500/10 border-2 border-green-500/20 text-green-600 rounded-xl flex items-center justify-center transition-all duration-300 hover:bg-green-500 hover:text-white hover:scale-110"
               aria-label="WhatsApp"
             >
               <FaWhatsapp className="text-xl" />

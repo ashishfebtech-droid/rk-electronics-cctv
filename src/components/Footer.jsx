@@ -3,6 +3,9 @@ import {
   FaPhone, 
   FaMapMarkerAlt, 
   FaInstagram,
+  FaFacebook,
+  FaYoutube,
+  FaWhatsapp,
   FaClock,
   FaShieldAlt,
   FaArrowUp
@@ -18,6 +21,14 @@ function Footer() {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  // Social Media Links
+  const socialLinks = {
+    instagram: "https://www.instagram.com/rk_electronics_cctv?igsh=enVhcXJoM29pdTh5",
+    facebook: "https://www.facebook.com/share/1CJ57MxNPD/",
+    youtube: "https://youtube.com/@rk_electronics_cctv?si=-lkMl_1nChnr6rJf",
+    whatsapp: "https://wa.me/917248805027"
   };
 
   const quickLinks = [
@@ -46,7 +57,20 @@ function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <FaShieldAlt className="text-3xl text-emerald-400" />
+              {/* Logo with White Background and Rounded Border */}
+              <div className="w-16 h-16 bg-white rounded-2xl p-2 flex items-center justify-center border-2 border-emerald-400/30">
+                <img 
+                  src="/rk-electronics-cctv/images/RKLOGO.webp" 
+                  alt="RK Electronics CCTV" 
+                  className="w-full h-full object-contain"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.nextSibling.style.display = 'block';
+                  }}
+                />
+                <FaShieldAlt className="text-2xl text-blue-600 hidden" />
+              </div>
+              
               <div>
                 <h3 className="text-2xl font-bold">RK Electronics CCTV</h3>
                 <p className="text-emerald-400 font-semibold">Security Solutions Provider</p>
@@ -83,6 +107,46 @@ function Footer() {
                   Monday - Sunday: 9:00 AM - 8:00 PM
                 </span>
               </div>
+            </div>
+
+            {/* Social Links - Footer */}
+            <div className="mt-6 flex gap-4">
+              <a
+                href={socialLinks.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-pink-500 text-white rounded-lg flex items-center justify-center hover:bg-pink-600 transition-all duration-300 transform hover:scale-110"
+                aria-label="Instagram"
+              >
+                <FaInstagram className="text-lg" />
+              </a>
+              <a
+                href={socialLinks.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-blue-600 text-white rounded-lg flex items-center justify-center hover:bg-blue-700 transition-all duration-300 transform hover:scale-110"
+                aria-label="Facebook"
+              >
+                <FaFacebook className="text-lg" />
+              </a>
+              <a
+                href={socialLinks.youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-red-500 text-white rounded-lg flex items-center justify-center hover:bg-red-600 transition-all duration-300 transform hover:scale-110"
+                aria-label="YouTube"
+              >
+                <FaYoutube className="text-lg" />
+              </a>
+              <a
+                href={socialLinks.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-green-500 text-white rounded-lg flex items-center justify-center hover:bg-green-600 transition-all duration-300 transform hover:scale-110"
+                aria-label="WhatsApp"
+              >
+                <FaWhatsapp className="text-lg" />
+              </a>
             </div>
           </div>
 
@@ -128,26 +192,47 @@ function Footer() {
             </div>
 
             {/* Social Links */}
-            <div className="flex items-center gap-6">
-              
+            <div className="flex items-center gap-4">
               {/* Instagram */}
               <a
-                href="https://www.instagram.com/"
+                href={socialLinks.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-pink-500 text-white rounded-lg flex items-center justify-center hover:bg-pink-600 transition-all duration-300 transform hover:scale-110"
+                className="w-8 h-8 bg-pink-500 text-white rounded-lg flex items-center justify-center hover:bg-pink-600 transition-all duration-300 transform hover:scale-110"
                 aria-label="Instagram"
               >
-                <FaInstagram className="text-lg" />
+                <FaInstagram className="text-sm" />
+              </a>
+
+              {/* Facebook */}
+              <a
+                href={socialLinks.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 bg-blue-600 text-white rounded-lg flex items-center justify-center hover:bg-blue-700 transition-all duration-300 transform hover:scale-110"
+                aria-label="Facebook"
+              >
+                <FaFacebook className="text-sm" />
+              </a>
+
+              {/* YouTube */}
+              <a
+                href={socialLinks.youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 bg-red-500 text-white rounded-lg flex items-center justify-center hover:bg-red-600 transition-all duration-300 transform hover:scale-110"
+                aria-label="YouTube"
+              >
+                <FaYoutube className="text-sm" />
               </a>
 
               {/* Scroll to Top */}
               <button
                 onClick={scrollToTop}
-                className="w-10 h-10 bg-emerald-500 text-white rounded-lg flex items-center justify-center hover:bg-emerald-600 transition-all duration-300 transform hover:scale-110"
+                className="w-8 h-8 bg-emerald-500 text-white rounded-lg flex items-center justify-center hover:bg-emerald-600 transition-all duration-300 transform hover:scale-110"
                 aria-label="Scroll to top"
               >
-                <FaArrowUp className="text-lg" />
+                <FaArrowUp className="text-sm" />
               </button>
             </div>
           </div>
