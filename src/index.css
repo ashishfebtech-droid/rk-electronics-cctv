@@ -2,44 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom Animations */
-@keyframes gradient-x {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
+/* Your existing animations... */
+
+/* Locomotive Scroll Fix */
+html.has-scroll-smooth {
+  overflow: hidden;
 }
 
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+html.has-scroll-dragging {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-@keyframes text-shine {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 100% 50%;
-  }
+.has-scroll-smooth body {
+  overflow: hidden;
 }
 
-.animate-gradient-x {
-  background-size: 200% 200%;
-  animation: gradient-x 15s ease infinite;
+.has-scroll-smooth [data-scroll-container] {
+  min-height: 100vh;
+  position: relative;
 }
 
-.animate-float {
-  animation: float 3s ease-in-out infinite;
+/* Fix for smoothness */
+[data-scroll-section] {
+  position: relative;
 }
 
-.animate-text {
-  background-size: 200% auto;
-  animation: text-shine 2s linear infinite;
+.c-scrollbar {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 11px;
+  height: 100vh;
+  transform-origin: center right;
+  transition: transform 0.3s, opacity 0.3s;
+  opacity: 0;
+}
+
+.c-scrollbar:hover {
+  transform: scaleX(1.45);
+}
+
+.c-scrollbar:hover,
+.has-scroll-scrolling .c-scrollbar,
+.has-scroll-dragging .c-scrollbar {
+  opacity: 1;
+}
+
+.c-scrollbar_thumb {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #3b82f6;
+  opacity: 0.5;
+  width: 7px;
+  border-radius: 10px;
+  margin: 2px;
+  cursor: -webkit-grab;
+  cursor: grab;
 }
