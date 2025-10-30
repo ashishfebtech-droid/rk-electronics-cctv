@@ -8,6 +8,9 @@ import {
   FaDesktop,
   FaTv,
   FaShieldAlt,
+  FaBell,
+  FaHeadset,
+  FaUsers,
 } from "react-icons/fa";
 
 function Services() {
@@ -20,7 +23,7 @@ function Services() {
       features: ["HD Quality", "Night Vision", "Remote Monitoring"],
     },
     {
-      icon: FaFireExtinguisher,
+      icon: FaBell,
       title: "Fire Alarm Systems",
       description:
         "Complete fire alarm system setup with smoke detectors and emergency alerts.",
@@ -48,7 +51,7 @@ function Services() {
       features: ["Remote Access", "Keyless Entry", "Auto Lock"],
     },
     {
-      icon: FaDesktop,
+      icon: FaUsers,
       title: "Video Conferencing",
       description:
         "Professional video conferencing system setup for businesses.",
@@ -62,7 +65,7 @@ function Services() {
       features: ["Wall Mounting", "Setup & Configuration", "Cable Management"],
     },
     {
-      icon: FaShieldAlt,
+      icon: FaHeadset,
       title: "Maintenance & Support",
       description:
         "Complete maintenance and after-sales support for all security systems.",

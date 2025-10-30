@@ -1,140 +1,151 @@
 import React from "react";
-import { 
-  FaCamera, 
-  FaTv, 
-  FaBell, 
-  FaPhone, 
+import { GiCctvCamera } from "react-icons/gi";
+import {
+  FaCamera,
+  FaTv,
+  FaBell,
+  FaPhone,
   FaFingerprint,
   FaDoorClosed,
   FaVideo,
   FaShieldAlt,
-  FaStar
+  FaStar,
+  FaNetworkWired,
+  FaComments,
 } from "react-icons/fa";
 
 function Products() {
   const products = [
     {
-      icon: FaCamera,
+      icon: GiCctvCamera,
       title: "CCTV Cameras",
       types: ["Indoor", "Outdoor", "Dome", "Bullet", "IP Cameras"],
-      description: "High-quality CCTV cameras for complete surveillance coverage.",
-      image: "/rk-electronics-cctv/images/camera.webp"
+      description:
+        "High-quality CCTV cameras for complete surveillance coverage.",
+      image: "/rk-electronics-cctv/images/camera.webp",
     },
     {
       icon: FaTv,
       title: "LED TVs",
       types: ["All Sizes Available", "Smart TVs", "4K Resolution"],
       description: "Premium LED TVs with latest technology and sizes.",
-      image: "/rk-electronics-cctv/images/tv.jpg"
+      image: "/rk-electronics-cctv/images/tv.jpg",
     },
     {
       icon: FaBell,
       title: "Fire Alarm Systems",
       types: ["Smoke Detectors", "Heat Detectors", "Alarm Panels"],
       description: "Reliable fire alarm systems for early warning and safety.",
-      image: "/rk-electronics-cctv/images/firealarm.webp"
+      image: "/rk-electronics-cctv/images/firealarm.webp",
     },
     {
       icon: FaPhone,
       title: "Intercom Systems",
       types: ["Video Door Phones", "Audio Intercoms", "Multi-unit Systems"],
       description: "Advanced intercom systems for secure communication.",
-      image: "/rk-electronics-cctv/images/Video.jpg"
+      image: "/rk-electronics-cctv/images/Video.jpg",
     },
     {
       icon: FaFingerprint,
       title: "Biometric Systems",
       types: ["Attendance Systems", "Access Control", "Time & Attendance"],
-      description: "Secure biometric systems for access control and attendance.",
-      image: "/rk-electronics-cctv/images/Biometric.jpg"
+      description:
+        "Secure biometric systems for access control and attendance.",
+      image: "/rk-electronics-cctv/images/Biometric.jpg",
     },
     {
       icon: FaDoorClosed,
       title: "Electric Door Locks",
       types: ["Smart Locks", "Digital Locks", "Access Control Locks"],
       description: "Modern electric door locks for enhanced security.",
-      image: "/rk-electronics-cctv/images/electric-door.jpg"
+      image: "/rk-electronics-cctv/images/electric-door.jpg",
     },
     {
       icon: FaVideo,
       title: "Video Conferencing",
       types: ["Conference Systems", "Webcams", "Audio Systems"],
       description: "Professional video conferencing solutions for businesses.",
-      image: "/rk-electronics-cctv/images/fingerprint.webp"
+      image: "/rk-electronics-cctv/images/Video.jpg",
     },
     {
-      icon: FaShieldAlt,
+      icon: FaNetworkWired,
       title: "Networking Accessories",
       types: ["Routers", "Switches", "Cables", "Connectors"],
       description: "Complete networking solutions and accessories.",
-      image: "/rk-electronics-cctv/images/Networking.jpg"
-    }
+      image: "/rk-electronics-cctv/images/Networking.jpg",
+    },
   ];
 
   const brands = [
-    { 
-      name: "CP Plus", 
+    {
+      name: "CP Plus",
       rating: 5,
-      logo: "/rk-electronics-cctv/images/cpplus.jpeg"
+      logo: "/rk-electronics-cctv/images/cpplus.jpeg",
     },
-    { 
-      name: "Hikvision", 
+    {
+      name: "Hikvision",
       rating: 5,
-      logo: "/rk-electronics-cctv/images/HIKVISION.jpeg"
+      logo: "/rk-electronics-cctv/images/HIKVISION.jpeg",
     },
-    { 
-      name: "Dahua", 
+    {
+      name: "Dahua",
       rating: 5,
-      logo: "/rk-electronics-cctv/images/dahua.jpeg"
+      logo: "/rk-electronics-cctv/images/dahua.jpeg",
     },
-    { 
-      name: "TP-Link", 
+    {
+      name: "TP-Link",
       rating: 5,
-      logo: "/rk-electronics-cctv/images/tp-link.jpeg"
+      logo: "/rk-electronics-cctv/images/tp-link.jpeg",
     },
-    { 
-      name: "D-Link", 
+    {
+      name: "D-Link",
       rating: 5,
-      logo: "/rk-electronics-cctv/images/D-Link.jpeg"
+      logo: "/rk-electronics-cctv/images/D-Link.jpeg",
     },
-    { 
-      name: "Imou", 
+    {
+      name: "Imou",
       rating: 4,
-      logo: "/rk-electronics-cctv/images/Imou.jpeg"
+      logo: "/rk-electronics-cctv/images/Imou.jpeg",
     },
-    { 
-      name: "Geonix", 
+    {
+      name: "Geonix",
       rating: 4,
-      logo: "/rk-electronics-cctv/images/Geonix.jpeg"
+      logo: "/rk-electronics-cctv/images/Geonix.jpeg",
     },
-    { 
-      name: "Starbit", 
+    {
+      name: "Starbit",
       rating: 4,
-      logo: "/rk-electronics-cctv/images/Starbit.jpeg"
+      logo: "/rk-electronics-cctv/images/Starbit.jpeg",
     },
-    { 
-      name: "AVer", 
+    {
+      name: "AVer",
       rating: 4,
-      logo: "/rk-electronics-cctv/images/AVer.jpeg"
+      logo: "/rk-electronics-cctv/images/AVer.jpeg",
     },
-    { 
-      name: "Consistent", 
+    {
+      name: "Consistent",
       rating: 4,
-      logo: "/rk-electronics-cctv/images/Consistent.jpeg"
-    }
+      logo: "/rk-electronics-cctv/images/Consistent.jpeg",
+    },
   ];
 
   return (
-    <section id="products" className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+    <section
+      id="products"
+      className="py-20 bg-gradient-to-br from-slate-50 to-blue-50"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-slate-800 mb-6">
-            Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-emerald-600">Products</span>
+            Our{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-emerald-600">
+              Products
+            </span>
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            हम आपको हर ज़रूरत के हिसाब से wide range of products provide करते हैं
+            हम आपको हर ज़रूरत के हिसाब से wide range of products provide करते
+            हैं
           </p>
         </div>
 
@@ -143,19 +154,19 @@ function Products() {
           {products.map((product, index) => {
             const IconComponent = product.icon;
             return (
-              <div 
+              <div
                 key={index}
                 className="group bg-white rounded-2xl p-6 border border-slate-200 hover:border-blue-300 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl shadow-lg"
               >
                 {/* Square Image at Top - Increased Height */}
                 <div className="w-full h-56 mb-4 rounded-2xl overflow-hidden">
-                  <img 
-                    src={product.image} 
+                  <img
+                    src={product.image}
                     alt={product.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                     onError={(e) => {
-                      e.target.style.display = 'none';
-                      e.target.nextSibling.style.display = 'flex';
+                      e.target.style.display = "none";
+                      e.target.nextSibling.style.display = "flex";
                     }}
                   />
                   {/* Fallback if image fails to load */}
@@ -182,7 +193,7 @@ function Products() {
                 {/* Product Types */}
                 <div className="flex flex-wrap gap-2">
                   {product.types.map((type, typeIndex) => (
-                    <span 
+                    <span
                       key={typeIndex}
                       className="px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-full font-medium"
                     >
@@ -199,7 +210,11 @@ function Products() {
         <div className="bg-white rounded-2xl p-8 shadow-2xl border border-slate-200">
           <div className="text-center mb-8">
             <h3 className="text-3xl font-bold text-slate-800 mb-4">
-              Top <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-emerald-600">Brands</span> We Deal In
+              Top{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-emerald-600">
+                Brands
+              </span>{" "}
+              We Deal In
             </h3>
             <p className="text-slate-600 text-lg">
               We are proud partners of trusted and leading brands
@@ -208,7 +223,7 @@ function Products() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {brands.map((brand, index) => (
-              <div 
+              <div
                 key={index}
                 className="text-center group hover:transform hover:scale-105 transition-all duration-300"
               >
@@ -216,31 +231,34 @@ function Products() {
                 <div className="bg-white rounded-2xl border-2 border-slate-200 group-hover:border-blue-400 transition-all duration-300 mb-3 h-32 overflow-hidden shadow-md">
                   {/* Brand Logo - Full container without padding */}
                   <div className="w-full h-full flex items-center justify-center p-0">
-                    <img 
-                      src={brand.logo} 
+                    <img
+                      src={brand.logo}
                       alt={`${brand.name} logo`}
                       className="w-full h-full object-cover"
                       onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.nextSibling.style.display = 'flex';
+                        e.target.style.display = "none";
+                        e.target.nextSibling.style.display = "flex";
                       }}
                     />
                     {/* Fallback if image fails to load */}
-                    <div 
-                      className="hidden w-full h-full bg-gradient-to-br from-blue-500 to-emerald-500 flex items-center justify-center"
-                    >
+                    <div className="hidden w-full h-full bg-gradient-to-br from-blue-500 to-emerald-500 flex items-center justify-center">
                       <FaShieldAlt className="text-3xl text-white" />
                     </div>
                   </div>
                 </div>
-                
+
                 {/* Brand Name */}
-                <h4 className="font-bold text-slate-800 text-md mb-2">{brand.name}</h4>
-                
+                <h4 className="font-bold text-slate-800 text-md mb-2">
+                  {brand.name}
+                </h4>
+
                 {/* Rating */}
                 <div className="flex justify-center gap-1">
                   {[...Array(brand.rating)].map((_, starIndex) => (
-                    <FaStar key={starIndex} className="text-yellow-400 text-sm" />
+                    <FaStar
+                      key={starIndex}
+                      className="text-yellow-400 text-sm"
+                    />
                   ))}
                 </div>
               </div>
@@ -254,7 +272,6 @@ function Products() {
             </p>
           </div>
         </div>
-
       </div>
     </section>
   );
