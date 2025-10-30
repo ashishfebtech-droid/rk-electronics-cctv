@@ -64,11 +64,56 @@ function Products() {
   ];
 
   const brands = [
-    { name: "CP Plus", rating: 5 },
-    { name: "Hikvision", rating: 5 },
-    { name: "Dahua", rating: 5 },
-    { name: "TP-Link", rating: 4 },
-    { name: "D-Link", rating: 4 }
+    { 
+      name: "CP Plus", 
+      rating: 5,
+      logo: "/rk-electronics-cctv/images/cpplus.jpeg"
+    },
+    { 
+      name: "Hikvision", 
+      rating: 5,
+      logo: "/rk-electronics-cctv/images/HIKVISION.jpeg"
+    },
+    { 
+      name: "Dahua", 
+      rating: 5,
+      logo: "/rk-electronics-cctv/images/dahua.jpeg"
+    },
+    { 
+      name: "TP-Link", 
+      rating: 5,
+      logo: "/rk-electronics-cctv/images/tp-link.jpeg"
+    },
+    { 
+      name: "D-Link", 
+      rating: 5,
+      logo: "/rk-electronics-cctv/images/D-Link.jpeg"
+    },
+    { 
+      name: "Imou", 
+      rating: 4,
+      logo: "/rk-electronics-cctv/images/Imou.jpeg"
+    },
+    { 
+      name: "Geonix", 
+      rating: 4,
+      logo: "/rk-electronics-cctv/images/Geonix.jpeg"
+    },
+    { 
+      name: "Starbit", 
+      rating: 4,
+      logo: "/rk-electronics-cctv/images/Starbit.jpeg"
+    },
+    { 
+      name: "AVer", 
+      rating: 4,
+      logo: "/rk-electronics-cctv/images/AVer.jpeg"
+    },
+    { 
+      name: "Consistent", 
+      rating: 4,
+      logo: "/rk-electronics-cctv/images/Consistent.jpeg"
+    }
   ];
 
   return (
@@ -142,13 +187,35 @@ function Products() {
                 key={index}
                 className="text-center group hover:transform hover:scale-105 transition-all duration-300"
               >
-                <div className="bg-gradient-to-br from-slate-100 to-blue-100 rounded-2xl p-6 border border-slate-200 group-hover:border-blue-300 mb-3">
-                  <FaShieldAlt className="text-3xl text-blue-600 mx-auto mb-2" />
-                  <h4 className="font-bold text-slate-800 text-lg">{brand.name}</h4>
+                {/* Brand Logo Container - No Padding, Direct Image */}
+                <div className="bg-white rounded-2xl border-2 border-slate-200 group-hover:border-blue-400 transition-all duration-300 mb-3 h-32 overflow-hidden shadow-md">
+                  {/* Brand Logo - Full container without padding */}
+                  <div className="w-full h-full flex items-center justify-center p-0">
+                    <img 
+                      src={brand.logo} 
+                      alt={`${brand.name} logo`}
+                      className="w-full h-full object-cover rounded-2xl"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.nextSibling.style.display = 'flex';
+                      }}
+                    />
+                    {/* Fallback if image fails to load */}
+                    <div 
+                      className="hidden w-full h-full bg-gradient-to-br from-blue-500 to-emerald-500 rounded-2xl flex items-center justify-center"
+                    >
+                      <FaShieldAlt className="text-3xl text-white" />
+                    </div>
+                  </div>
                 </div>
+                
+                {/* Brand Name */}
+                <h4 className="font-bold text-slate-800 text-md mb-2">{brand.name}</h4>
+                
+                {/* Rating */}
                 <div className="flex justify-center gap-1">
                   {[...Array(brand.rating)].map((_, starIndex) => (
-                    <FaStar key={starIndex} className="text-yellow-400" />
+                    <FaStar key={starIndex} className="text-yellow-400 text-sm" />
                   ))}
                 </div>
               </div>
