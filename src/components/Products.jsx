@@ -17,49 +17,57 @@ function Products() {
       icon: FaCamera,
       title: "CCTV Cameras",
       types: ["Indoor", "Outdoor", "Dome", "Bullet", "IP Cameras"],
-      description: "High-quality CCTV cameras for complete surveillance coverage."
+      description: "High-quality CCTV cameras for complete surveillance coverage.",
+      image: "/rk-electronics-cctv/images/camera.webp"
     },
     {
       icon: FaTv,
       title: "LED TVs",
       types: ["All Sizes Available", "Smart TVs", "4K Resolution"],
-      description: "Premium LED TVs with latest technology and sizes."
+      description: "Premium LED TVs with latest technology and sizes.",
+      image: "/rk-electronics-cctv/images/tv.jpg"
     },
     {
       icon: FaBell,
       title: "Fire Alarm Systems",
       types: ["Smoke Detectors", "Heat Detectors", "Alarm Panels"],
-      description: "Reliable fire alarm systems for early warning and safety."
+      description: "Reliable fire alarm systems for early warning and safety.",
+      image: "/rk-electronics-cctv/images/firealarm.webp"
     },
     {
       icon: FaPhone,
       title: "Intercom Systems",
       types: ["Video Door Phones", "Audio Intercoms", "Multi-unit Systems"],
-      description: "Advanced intercom systems for secure communication."
+      description: "Advanced intercom systems for secure communication.",
+      image: "/rk-electronics-cctv/images/Video.jpg"
     },
     {
       icon: FaFingerprint,
       title: "Biometric Systems",
       types: ["Attendance Systems", "Access Control", "Time & Attendance"],
-      description: "Secure biometric systems for access control and attendance."
+      description: "Secure biometric systems for access control and attendance.",
+      image: "/rk-electronics-cctv/images/Biometric.jpg"
     },
     {
       icon: FaDoorClosed,
       title: "Electric Door Locks",
       types: ["Smart Locks", "Digital Locks", "Access Control Locks"],
-      description: "Modern electric door locks for enhanced security."
+      description: "Modern electric door locks for enhanced security.",
+      image: "/rk-electronics-cctv/images/electric-door.jpg"
     },
     {
       icon: FaVideo,
       title: "Video Conferencing",
       types: ["Conference Systems", "Webcams", "Audio Systems"],
-      description: "Professional video conferencing solutions for businesses."
+      description: "Professional video conferencing solutions for businesses.",
+      image: "/rk-electronics-cctv/images/fingerprint.webp"
     },
     {
       icon: FaShieldAlt,
       title: "Networking Accessories",
       types: ["Routers", "Switches", "Cables", "Connectors"],
-      description: "Complete networking solutions and accessories."
+      description: "Complete networking solutions and accessories.",
+      image: "/rk-electronics-cctv/images/Networking.jpg"
     }
   ];
 
@@ -130,7 +138,7 @@ function Products() {
           </p>
         </div>
 
-        {/* Products Grid */}
+        {/* Products Grid - ORIGINAL DESIGN with Increased Image Height */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {products.map((product, index) => {
             const IconComponent = product.icon;
@@ -139,6 +147,23 @@ function Products() {
                 key={index}
                 className="group bg-white rounded-2xl p-6 border border-slate-200 hover:border-blue-300 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl shadow-lg"
               >
+                {/* Square Image at Top - Increased Height */}
+                <div className="w-full h-56 mb-4 rounded-2xl overflow-hidden">
+                  <img 
+                    src={product.image} 
+                    alt={product.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.nextSibling.style.display = 'flex';
+                    }}
+                  />
+                  {/* Fallback if image fails to load */}
+                  <div className="hidden w-full h-full bg-gradient-to-br from-blue-500 to-emerald-500 rounded-2xl items-center justify-center">
+                    <IconComponent className="text-4xl text-white" />
+                  </div>
+                </div>
+
                 {/* Icon */}
                 <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                   <IconComponent className="text-2xl text-white" />
@@ -187,14 +212,14 @@ function Products() {
                 key={index}
                 className="text-center group hover:transform hover:scale-105 transition-all duration-300"
               >
-                {/* Brand Logo Container - No Padding, Direct Image */}
+                {/* Brand Logo Container - Square */}
                 <div className="bg-white rounded-2xl border-2 border-slate-200 group-hover:border-blue-400 transition-all duration-300 mb-3 h-32 overflow-hidden shadow-md">
                   {/* Brand Logo - Full container without padding */}
                   <div className="w-full h-full flex items-center justify-center p-0">
                     <img 
                       src={brand.logo} 
                       alt={`${brand.name} logo`}
-                      className="w-full h-full object-cover rounded-2xl"
+                      className="w-full h-full object-cover"
                       onError={(e) => {
                         e.target.style.display = 'none';
                         e.target.nextSibling.style.display = 'flex';
@@ -202,7 +227,7 @@ function Products() {
                     />
                     {/* Fallback if image fails to load */}
                     <div 
-                      className="hidden w-full h-full bg-gradient-to-br from-blue-500 to-emerald-500 rounded-2xl flex items-center justify-center"
+                      className="hidden w-full h-full bg-gradient-to-br from-blue-500 to-emerald-500 flex items-center justify-center"
                     >
                       <FaShieldAlt className="text-3xl text-white" />
                     </div>
