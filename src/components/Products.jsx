@@ -43,7 +43,7 @@ function Products() {
       title: "Intercom Systems",
       types: ["Video Door Phones", "Audio Intercoms", "Multi-unit Systems"],
       description: "Advanced intercom systems for secure communication.",
-      image: "/rk-electronics-cctv/images/Video.jpg",
+      image: "/rk-electronics-cctv/images/intercom.jpeg",
     },
     {
       icon: FaFingerprint,
@@ -82,6 +82,11 @@ function Products() {
       rating: 5,
       logo: "/rk-electronics-cctv/images/cpplus.jpeg",
     },
+     {
+      name: "Starbit",
+      rating: 4,
+      logo: "/rk-electronics-cctv/images/Starbit.png",
+    },
     {
       name: "Hikvision",
       rating: 5,
@@ -111,11 +116,6 @@ function Products() {
       name: "Geonix",
       rating: 4,
       logo: "/rk-electronics-cctv/images/Geonix.jpeg",
-    },
-    {
-      name: "Starbit",
-      rating: 4,
-      logo: "/rk-electronics-cctv/images/Starbit.jpeg",
     },
     {
       name: "AVer",
